@@ -43,13 +43,13 @@
     <p class="lead text-secondary">Klik salah satu di bawah ini:</p>
 
     <div class="d-flex justify-content-center gap-3 mt-4">
-      <a href="tabel_mahasiswa.html" class="btn btn-custom btn-lg">Tabel Mahasiswa</a>
-      <a href="input_data.html" class="btn btn-custom btn-lg">Form Data</a>
+      <a href="tabel_mahasiswa.php" class="btn btn-custom btn-lg">Tabel Mahasiswa</a>
+      <a href="input_data.php" class="btn btn-custom btn-lg">Form Data</a>
     </div>
   </div>
 
   <footer class="text-center text-white py-3 mt-5" style="background-color:#6f42c1;">
-    © 2025 KSI2025 | Allena Zandra Puspita
+    © 2025 KSI2025 | <?php echo "Allena Zandra Puspita"; ?>
   </footer>
 
 </body>
