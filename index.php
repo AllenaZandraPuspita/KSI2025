@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSI2025 - Home</title>
+
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f5ff;
+    }
+    .navbar {
+      background-color: #6f42c1 !important;
+    }
+    .btn-custom {
+      background-color: #ffc107;
+      color: #4a148c;
+      font-weight: bold;
+    }
+    .btn-custom:hover {
+      background-color: #ffda47;
+      color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">💜 KSI2025</a>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container text-center py-5">
+    <h1 class="fw-bold text-purple mb-4">Selamat Datang di KSI2025</h1>
+    <p class="lead text-secondary">Klik salah satu di bawah ini:</p>
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <a href="tabel_mahasiswa.php" class="btn btn-custom btn-lg">Tabel Mahasiswa</a>
+      <a href="input_data.php" class="btn btn-custom btn-lg">Form Data</a>
+    </div>
+  </div>
+
+  <footer class="text-center text-white py-3 mt-5" style="background-color:#6f42c1;">
+    © 2025 KSI2025 | <?php echo "Allena Zandra Puspita"; ?>
+  </footer>
+
+</body>
+</html>
