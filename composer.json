@@ -1,0 +1,6 @@
+{
+    "name": "acer/ksi2025",
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    }
+}
