@@ -2,23 +2,21 @@
 // src/Mahasiswa.php
 
 class Mahasiswa {
-    // Fungsi ini mensimulasikan penambahan data ke database.
-    // Untuk tujuan Unit Test, kita hanya mengecek apakah inputnya layak diproses (validasi).
-    public function tambahData(string $nama, string $nim): bool {
-        
-        // 1. Validasi Nama
-        if (trim($nama) === '' || strlen($nama) < 3) {
-            return false; // Nama terlalu pendek/kosong
+
+    // Tambahkan type hinting untuk keamanan kode
+    public function tambahData(string $nama, string $npm): bool
+    {
+        // 1. Validasi Nama (harus diisi dan minimal 3 karakter)
+        if (trim($nama) === '' || strlen(trim($nama)) < 3) {
+            return false; // nama kosong / terlalu pendek = gagal
         }
         
-        // 2. Validasi NIM (Asumsi NIM harus 10 digit)
-        if (!preg_match('/^\d{10}$/', $nim)) {
-            return false; // NIM tidak 10 digit angka
+        // 2. Validasi NPM (Asumsi 6 digit angka, sesuai dengan test Anda)
+        if (!preg_match('/^\d{6}$/', $npm)) {
+             return false; // NPM tidak 6 digit angka = gagal
         }
-        
-        // Di aplikasi nyata, di sini akan ada kode SQL INSERT INTO...
-        
-        // Jika validasi sukses, anggap data berhasil ditambahkan
+
+        // Jika semua validasi sukses
         return true; 
     }
 }

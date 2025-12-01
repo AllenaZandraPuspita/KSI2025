@@ -2,48 +2,44 @@
 // tests/MahasiswaTest.php
 use PHPUnit\Framework\TestCase;
 
-// Memuat (include) class yang akan diuji
-require 'src/Mahasiswa.php'; 
+// Hapus require_once karena kita pakai Autoload Composer
 
 class MahasiswaTest extends TestCase {
+
+    // Test 1: Skenario Sukses
+    public function testTambahDataSukses(): void
+    {
+        // Kita asumsikan class Mahasiswa bisa di-load via Composer
+        $mhs = new Mahasiswa(); 
+
+        // Data valid: Nama minimal 3 karakter dan NPM 6 digit
+        $hasil = $mhs->tambahData("Allena", "123456");
+
+        // Assertion: Harus TRUE
+        $this->assertTrue($hasil, "Data valid seharusnya sukses ditambahkan.");
+    }
     
-    // Test Skenario 1: Penambahan Data Berhasil
-    public function testTambahDataSukses(): void {
-        $mahasiswa = new Mahasiswa();
-        
-        // Data input yang valid
-        $nama_valid = 'Budi Santoso';
-        $nim_valid = '1234567890'; // 10 digit
-        
-        $hasil = $mahasiswa->tambahData($nama_valid, $nim_valid);
-        
-        // Assertion: Memastikan hasilnya TRUE (berhasil disimpan)
-        $this->assertTrue($hasil, "Data mahasiswa valid seharusnya berhasil ditambahkan.");
-    }
+    // Test 2: Skenario Nama Gagal (Test Anda yang sudah ada)
+    public function testTambahDataNamaGagal(): void
+    {
+        $mhs = new Mahasiswa();
 
-    // Test Skenario 2: NIM Gagal (kurang dari 10 digit)
-    public function testTambahDataNIMGagal(): void {
-        $mahasiswa = new Mahasiswa();
-        
-        $nama_valid = 'Susi';
-        $nim_gagal = '12345'; // NIM hanya 5 digit
-        
-        $hasil = $mahasiswa->tambahData($nama_valid, $nim_gagal);
-        
-        // Assertion: Memastikan hasilnya FALSE (gagal disimpan karena NIM salah)
-        $this->assertFalse($hasil, "Data gagal karena NIM kurang dari 10 digit.");
-    }
+        // Nama kosong dan NPM valid
+        $hasil = $mhs->tambahData("", "123456"); 
 
-    // Test Skenario 3: Nama Gagal (kosong)
-    public function testTambahDataNamaGagal(): void {
-        $mahasiswa = new Mahasiswa();
-        
-        $nama_gagal = '  '; // Hanya spasi (dianggap kosong)
-        $nim_valid = '0987654321';
-        
-        $hasil = $mahasiswa->tambahData($nama_gagal, $nim_valid);
-        
-        // Assertion: Memastikan hasilnya FALSE (gagal disimpan karena Nama kosong)
+        // Assertion: Harus FALSE
         $this->assertFalse($hasil, "Data gagal karena Nama kosong.");
+    }
+    
+    // Test 3: Skenario NPM Gagal
+    public function testTambahDataNPMGagal(): void
+    {
+        $mhs = new Mahasiswa();
+
+        // Nama valid tapi NPM tidak 6 digit
+        $hasil = $mhs->tambahData("Budi", "123"); 
+
+        // Assertion: Harus FALSE
+        $this->assertFalse($hasil, "Data gagal karena NPM tidak sesuai format.");
     }
 }
